@@ -2,15 +2,27 @@
 
 A terminal-based messaging app that allows real-time communication between devices on the same WiFi network.
 
+## 🚀 Two Interface Options
+
+### 1. **Web Interface** (Browser-based)
+- Full React web application 
+- Runs in your browser at localhost:3000
+- Perfect for development and testing
+
+### 2. **Native CLI** (Terminal-based) ⭐ **NEW!**
+- Built with React Ink - same as Claude CLI and Gemini CLI
+- Runs directly in your terminal
+- True command-line experience like professional AI tools
+
 ## Features
 
-- 🖥️ Terminal-like CLI interface
-- 🔍 Network device discovery
-- 💬 Real-time messaging
-- 🔒 Private messaging
-- 👥 Connected users list
-- 📚 Message history
-- 🎨 Retro terminal styling
+- 🖥️ **Dual Interface**: Web browser + native terminal CLI
+- 🔍 **Network Discovery**: Automatic WiFi device scanning
+- 💬 **Real-time Messaging**: Instant communication via WebSockets
+- 🔒 **Private Messaging**: Send direct messages to specific users
+- 👥 **Connected Users**: Live user list and status
+- 📚 **Message History**: Persistent chat history
+- 🎨 **Professional Styling**: Terminal UI like Claude CLI/Gemini CLI
 
 ## Screenshots
 
@@ -149,13 +161,47 @@ Checking connection status and managing the session:
 
 ## Quick Start
 
+### Option 1: Native CLI (Recommended) ⭐
+
 1. **Install dependencies:**
    ```bash
    npm install
    npm run install:server
    ```
 
-2. **Run the application:**
+2. **Run the CLI version:**
+   ```bash
+   # Start server and CLI together
+   npm run cli:dev
+   
+   # Or run CLI only (server must be running separately)
+   npm run cli
+   
+   # Or run directly
+   node cli/index.js --help
+   ```
+
+3. **Usage examples:**
+   ```bash
+   # Basic usage
+   wifi-messenger
+   
+   # Set username
+   wifi-messenger --username Alice
+   
+   # Start in server mode
+   wifi-messenger --server --port 3001
+   ```
+
+### Option 2: Web Interface
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   npm run install:server
+   ```
+
+2. **Run the web version:**
    ```bash
    npm run dev
    ```
@@ -339,10 +385,26 @@ Each device can discover others, connect to any server, and participate in real-
 
 ## Architecture
 
-### Frontend (React + TypeScript)
-- **Terminal Component:** Renders CLI interface with command history
+### CLI Interface (React Ink) ⭐
+- **Built with React Ink** - Same technology as Claude CLI and Gemini CLI
+- **Terminal Components:** Native terminal UI with Box and Text components
+- **Interactive Input:** Real-time command processing and keyboard handling
+- **Professional UX:** Styled borders, colors, and formatting like AI CLIs
+
+### Frontend Options
+1. **Native CLI (React Ink + Node.js)**
+   - Direct terminal rendering with React components
+   - No browser required - runs in any terminal
+   - Command-line argument parsing and flag handling
+   
+2. **Web Interface (React + TypeScript)**
+   - Browser-based terminal simulator
+   - Development and testing interface
+   - Full React web application
+
+### Shared Services
 - **Network Service:** Handles IP discovery and device scanning
-- **Messenger Service:** WebSocket client for real-time communication
+- **Messenger Service:** WebSocket client for real-time communication  
 - **Command Parser:** Processes user commands and executes actions
 
 ### Backend (Node.js + Socket.io)
