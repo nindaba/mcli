@@ -12,6 +12,141 @@ A terminal-based messaging app that allows real-time communication between devic
 - 📚 Message history
 - 🎨 Retro terminal styling
 
+## Screenshots
+
+### 1. Application Startup
+The terminal interface loads with retro green styling and system messages:
+
+```
+┌─────────────────── WiFi Messenger CLI ──────────────────┐
+│ ○ ○ ○                                                    │
+├──────────────────────────────────────────────────────────┤
+│ [10:30:15] WiFi Messenger CLI v1.0.0                    │
+│ [10:30:15] Type "help" for available commands           │
+│ [10:30:15] Scanning network for devices...              │
+│ [10:30:16] No other WiFi Messenger instances found      │
+│                                                          │
+│ $ help                                                   │
+│ Available commands:                                      │
+│   help - Show this help message                         │
+│   scan - Scan network for devices                       │
+│   devices - List discovered devices                     │
+│   connect <ip> [username] - Connect to messenger server │
+│   disconnect - Disconnect from server                   │
+│   users - List connected users                          │
+│   msg <message> - Send a message                        │
+│   pm <username> <message> - Send private message        │
+│   clear - Clear terminal                                │
+│   status - Show connection status                       │
+│                                                          │
+│ $ _                                                      │
+└──────────────────────────────────────────────────────────┘
+```
+
+### 2. Network Scanning
+Discovering devices on your WiFi network:
+
+```
+┌─────────────────── WiFi Messenger CLI ──────────────────┐
+│ ○ ○ ○                                                    │
+├──────────────────────────────────────────────────────────┤
+│ [10:32:10] $ scan                                        │
+│ [10:32:10] Scanning network...                          │
+│ [10:32:12] Found 3 devices on network                   │
+│   192.168.1.100 - laptop-alice [MESSENGER]              │
+│   192.168.1.101 - phone-bob [ONLINE]                    │
+│   192.168.1.102 - desktop-charlie [MESSENGER]           │
+│                                                          │
+│ $ devices                                                │
+│ Discovered devices:                                      │
+│   192.168.1.100 - laptop-alice [MESSENGER]              │
+│   192.168.1.101 - phone-bob [ONLINE]                    │
+│   192.168.1.102 - desktop-charlie [MESSENGER]           │
+│                                                          │
+│ $ _                                                      │
+└──────────────────────────────────────────────────────────┘
+```
+
+### 3. Connecting to Another Device
+Establishing connection and joining chat:
+
+```
+┌─────────────────── WiFi Messenger CLI ──────────────────┐
+│ ○ ○ ○                                                    │
+├──────────────────────────────────────────────────────────┤
+│ [10:33:45] $ connect 192.168.1.100 Alice                │
+│ [10:33:45] Connecting to 192.168.1.100:3001...          │
+│ [10:33:46] Connected as Alice                            │
+│ [10:33:46] Loaded 5 previous messages                   │
+│ Bob: Hey everyone, how's it going?                       │
+│ Charlie: Good morning! Just got my coffee ☕            │
+│ Bob: Anyone up for a quick meeting?                      │
+│ Charlie: Sure, let me know when                          │
+│ [10:33:46] Alice joined the chat                         │
+│                                                          │
+│ $ users                                                  │
+│ Connected users:                                         │
+│   Bob (192.168.1.102)                                   │
+│   Charlie (192.168.1.103)                               │
+│                                                          │
+│ $ _                                                      │
+└──────────────────────────────────────────────────────────┘
+```
+
+### 4. Active Chat Session
+Real-time messaging with multiple users:
+
+```
+┌─────────────────── WiFi Messenger CLI ──────────────────┐
+│ ○ ○ ○                                                    │
+├──────────────────────────────────────────────────────────┤
+│ Charlie: Sure, let me know when                          │
+│ [10:33:46] Alice joined the chat                         │
+│                                                          │
+│ [10:34:10] $ msg Hello everyone! 👋                     │
+│ You: Hello everyone! 👋                                 │
+│ Bob: Hey Alice! Welcome to the chat                      │
+│ Charlie: Hi Alice! Good to see you online               │
+│                                                          │
+│ [10:34:32] $ msg Thanks! How is everyone doing?         │
+│ You: Thanks! How is everyone doing?                      │
+│ Bob: Pretty good, just working on some code             │
+│ Charlie: Same here, debugging some issues               │
+│                                                          │
+│ [10:35:15] $ pm Bob Want to pair program later?         │
+│ [PRIVATE to Bob]: Want to pair program later?           │
+│ [PRIVATE] Bob: Absolutely! Let's do it after lunch      │
+│                                                          │
+│ $ _                                                      │
+└──────────────────────────────────────────────────────────┘
+```
+
+### 5. Status and Management
+Checking connection status and managing the session:
+
+```
+┌─────────────────── WiFi Messenger CLI ──────────────────┐
+│ ○ ○ ○                                                    │
+├──────────────────────────────────────────────────────────┤
+│ [PRIVATE] Bob: Absolutely! Let's do it after lunch      │
+│                                                          │
+│ [10:36:20] $ status                                      │
+│ Connection: Connected                                    │
+│ Username: Alice                                          │
+│ Connected users: 2                                       │
+│ Devices on network: 3                                   │
+│                                                          │
+│ [10:36:45] Bob left the chat                             │
+│                                                          │
+│ [10:37:00] $ disconnect                                  │
+│ [10:37:00] Disconnected from server                     │
+│                                                          │
+│ [10:37:05] $ clear                                       │
+│                                                          │
+│ $ _                                                      │
+└──────────────────────────────────────────────────────────┘
+```
+
 ## Quick Start
 
 1. **Install dependencies:**
