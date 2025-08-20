@@ -1,0 +1,37 @@
+# Development files
+*.log
+npm-debug.log*
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build directories
+build/
+dist/
+.next/
+out/
+
+# Web development files (since this is a CLI package)
+src/
+public/
+.eslintcache
+
+# Dependencies
+node_modules/
+server/node_modules/
+
+# Testing
+coverage/
+.nyc_output
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db

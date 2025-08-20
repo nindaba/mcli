@@ -159,54 +159,66 @@ Checking connection status and managing the session:
 └──────────────────────────────────────────────────────────┘
 ```
 
-## Quick Start
+## 🚀 Quick Start
 
-### Option 1: Native CLI (Recommended) ⭐
+### **Option 1: Run with npx (Easiest)** ⭐
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   npm run install:server
-   ```
+No installation required! Run directly from npm:
 
-2. **Run the CLI version:**
-   ```bash
-   # Start server and CLI together
-   npm run cli:dev
-   
-   # Or run CLI only (server must be running separately)
-   npm run cli
-   
-   # Or run directly
-   node cli/index.js --help
-   ```
+```bash
+# Run once without installing
+npx wifi-messenger-cli
 
-3. **Usage examples:**
-   ```bash
-   # Basic usage
-   wifi-messenger
-   
-   # Set username
-   wifi-messenger --username Alice
-   
-   # Start in server mode
-   wifi-messenger --server --port 3001
-   ```
+# With options
+npx wifi-messenger-cli --username Alice
+npx wifi-messenger-cli --server --port 3001
+npx wifi-messenger-cli --help
+```
 
-### Option 2: Web Interface
+### **Option 2: Global Installation**
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   npm run install:server
-   ```
+Install once, use everywhere:
 
-2. **Run the web version:**
-   ```bash
-   npm run dev
-   ```
-   
-   This starts both the React frontend (port 3000) and WebSocket server (port 3001).
+```bash
+# Install globally
+npm install -g wifi-messenger-cli
+
+# Use anywhere
+wifi-messenger --username Alice
+wm --help  # Short alias
+```
+
+### **Option 3: Development/Local**
+
+Clone and run from source:
+
+```bash
+git clone https://github.com/nindaba/mcli.git
+cd mcli
+npm install
+npm run cli
+```
+
+### **Option 4: Web Interface (Development)**
+
+For web-based development and testing:
+
+```bash
+git clone https://github.com/nindaba/mcli.git
+cd mcli
+npm install
+npm run install:server
+npm run dev
+```
+
+This starts both the React frontend (port 3000) and WebSocket server (port 3001).
+
+## 📦 Installation Requirements
+
+- **Node.js** 16.0.0 or higher
+- **npm** or **yarn**
+- **Terminal** that supports interactive input
+- **Same WiFi network** for device discovery
 
 ## Usage
 

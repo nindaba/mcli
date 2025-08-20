@@ -1,44 +1,49 @@
 {
-  "name": "wifi-messenger",
-  "version": "0.1.0",
-  "private": true,
-  "bin": {
-    "wifi-messenger": "./cli/index.js"
+  "name": "wifi-messenger-cli",
+  "version": "1.0.0",
+  "description": "Terminal-based messaging app for WiFi networks built with React Ink",
+  "keywords": ["cli", "terminal", "messaging", "wifi", "react-ink", "chat", "network"],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/nindaba/mcli#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nindaba/mcli.git"
   },
+  "bugs": {
+    "url": "https://github.com/nindaba/mcli/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "bin": {
+    "wifi-messenger": "./cli/index.js",
+    "wm": "./cli/index.js"
+  },
+  "files": [
+    "cli/",
+    "server/server.js",
+    "server/package.json",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.7.0",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/react": "^19.1.10",
-    "@types/react-dom": "^19.1.7",
-    "chalk": "^5.6.0",
-    "import-jsx": "^5.0.0",
     "ink": "^3.2.0",
-    "meow": "^10.1.5",
-    "network-utils": "^0.0.0",
-    "node-nmap": "^4.0.0",
     "react": "^18.3.1",
-    "react-dom": "^19.1.1",
-    "react-scripts": "5.0.1",
-    "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "ws": "^8.18.3"
+    "socket.io": "^4.8.1",
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "cd server && npm start",
-    "server:dev": "cd server && npm run dev",
-    "dev": "concurrently \"npm run server:dev\" \"npm start\"",
-    "install:server": "cd server && npm install",
-    "cli": "node cli/index.js",
-    "cli:dev": "concurrently \"npm run server:dev\" \"npm run cli\""
+    "start": "node cli/index.js",
+    "server": "node server/server.js",
+    "dev": "node cli/index.js",
+    "postinstall": "cd server && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "nodemon": "^3.1.10"
   },
   "eslintConfig": {
     "extends": [
